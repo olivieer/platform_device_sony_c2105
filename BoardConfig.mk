@@ -83,19 +83,11 @@ WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_HAS_CFG80211_KERNEL3_4 := true
 
-# bluetooth is not enabled yet
-#BOARD_HAVE_BLUETOOTH := true
-ifeq ($(BOARD_HAVE_BLUETOOTH), true)
-    BOARD_HAVE_BLUETOOTH_BLUEZ := true
-    ifneq ($(BOARD_HAVE_BLUETOOTH_BLUEZ), true)
-        BOARD_HAVE_BLUETOOTH_QCOM := true
-        BLUETOOTH_HCI_USE_MCT := true
-    endif
-    BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
-    BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
-endif
+# Bluetooth
+BOARD_HAVE_BLUETOOTH_QCOM := true
+BLUETOOTH_HCI_USE_MCT := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/c2105/bluetooth
 
 # gps is not enabled yet
 #BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM) 
 #TARGET_NO_RPC := true
-

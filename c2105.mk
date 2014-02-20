@@ -18,6 +18,7 @@ PRODUCT_COPY_FILES += \
     device/sony/c2105/rootdir/root/fstab.qcom:root/fstab.qcom \
     device/sony/c2105/rootdir/root/ueventd.qcom.rc:root/ueventd.qcom.rc \
     device/sony/c2105/rootdir/root/init.qcom.usb.rc:root/init.qcom.usb.rc \
+	device/sony/c2105/rootdir/system/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh
     device/sony/c2105/rootdir/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/sony/c2105/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/sony/c2105/rootdir/system/etc/gps.conf:system/etc/gps.conf \
@@ -53,6 +54,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
 	
+# Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qualcomm.bt.hci_transport=smd
+	
 # Extra packages
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -69,6 +74,7 @@ PRODUCT_PACKAGES += \
     bttest \
     libbluedroid \
     libtinyxml \
+	hci_qcomm_init \
     hostapd_cli \
     com.android.nfc_extras \
     AccountAndSyncSettings \
