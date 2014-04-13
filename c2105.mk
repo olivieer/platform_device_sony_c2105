@@ -57,6 +57,11 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bt.hci_transport=smd
+
+# Disable strict mode in userdebug builds
+PRODUCT_PROPERTY_OVERRIDES += \	
+	 persist.sys.strictmode.visual=0 \
+     persist.sys.strictmode.disable=1	
 	
 # Extra packages
 PRODUCT_PACKAGES += \
